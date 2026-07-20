@@ -1,0 +1,38 @@
+# Plantilla de cask para una app nueva de KaiCorpLabs.
+#
+# Cómo usarla:
+#   1. Copia este archivo a  Casks/<cask>.rb  (nombre en minúsculas, sin espacios).
+#   2. Sustituye los marcadores {{...}}.
+#   3. Deja version/sha256 como están: Scripts/release.sh los rellena en la
+#      primera publicación. (0.0.0 y el sha de placeholder son intencionados.)
+#   4. Ajusta `depends_on macos` y las rutas de `zap` a tu app.
+#
+# Convenciones que asume Scripts/release.sh:
+#   - Etiqueta de la release:  <cask>-v<version>     (p. ej. diskshelf-v0.1.0)
+#   - Nombre del asset .zip:   <AppName>-<version>.zip
+#   - El .zip contiene <AppName>.app en la raíz.
+
+cask "{{CASK}}" do
+  version "0.0.0"
+  sha256 "0000000000000000000000000000000000000000000000000000000000000000"
+
+  url "https://github.com/KaiCorpLabs/homebrew-tap/releases/download/{{CASK}}-v#{version}/{{APP_NAME}}-#{version}.zip",
+      verified: "github.com/KaiCorpLabs/homebrew-tap/"
+  name "{{APP_NAME}}"
+  desc "{{DESC}}"
+  homepage "https://github.com/KaiCorpLabs/{{REPO}}"
+
+  livecheck do
+    url "https://github.com/KaiCorpLabs/homebrew-tap.git"
+    regex(/^{{CASK}}[-_]v?(\d+(?:\.\d+)+)$/i)
+    strategy :git
+  end
+
+  depends_on macos: ">= :sonoma" # macOS 14; usa :sequoia para 15, etc.
+
+  app "{{APP_NAME}}.app"
+
+  zap trash: [
+    "~/Library/Application Support/{{APP_NAME}}",
+  ]
+end
