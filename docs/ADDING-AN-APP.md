@@ -67,13 +67,15 @@ un token propio (el `GITHUB_TOKEN` por defecto solo puede con el repo de la app)
 1. GitHub → Settings → Developer settings → **Fine-grained tokens** → *Generate*.
 2. *Resource owner* **KaiCorpLabs**, *Repository access* solo `homebrew-tap`,
    *Permissions* → **Contents: Read and write**.
-3. Guárdalo como secret del repo de la app:
+3. Guárdalo como secret **del repo de la app** (no de organización):
    ```sh
    gh secret set TAP_TOKEN --repo KaiCorpLabs/mi-repo
    ```
 
-El mismo token sirve para todas las apps si el fine-grained lo generas con acceso
-al `homebrew-tap`.
+El **mismo token** sirve para todas las apps (está scoped al `homebrew-tap`), pero
+en el plan **free** de GitHub los secrets de organización solo llegan a repos
+públicos; a los privados no. Por eso el secret se añade **en cada repo privado**,
+reutilizando el mismo valor de token.
 
 ## Paso 3 — publicar
 
