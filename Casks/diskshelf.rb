@@ -1,6 +1,6 @@
 cask "diskshelf" do
-  version "0.1.1"
-  sha256 "626e8c1eea681bbbe65d805132c81a32bd10a5a0589d2e4535ad3174949340af"
+  version "0.2.0"
+  sha256 "119a8b2804a27cf83836b9152dda024a861758e087f16c7e658b5f086fb3355f"
 
   url "https://github.com/KaiCorpLabs/homebrew-tap/releases/download/diskshelf-v#{version}/DiskShelf-#{version}.zip",
       verified: "github.com/KaiCorpLabs/homebrew-tap/"
