@@ -17,7 +17,7 @@ cask "diskshelf" do
     strategy :git
   end
 
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma # macOS 14 o posterior
 
   app "DiskShelf.app"
 

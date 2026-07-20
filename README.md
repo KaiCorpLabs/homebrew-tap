@@ -13,8 +13,13 @@ que gente de confianza pueda probarlas.
 
 ```sh
 brew tap kaicorplabs/tap
+brew trust kaicorplabs/tap          # taps de terceros requieren confianza explícita
 brew install --cask --no-quarantine diskshelf
 ```
+
+> **`brew trust`**: desde Homebrew 6, instalar desde un tap que no es oficial
+> exige confiar en él una vez. Si lo omites verás *"Refusing to load cask … from
+> untrusted tap"*. Basta hacerlo una vez por tap.
 
 Para no tener que escribir `--no-quarantine` en cada instalación, añádelo una vez
 a tu shell:

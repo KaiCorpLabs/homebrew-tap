@@ -28,7 +28,7 @@ cask "{{CASK}}" do
     strategy :git
   end
 
-  depends_on macos: ">= :sonoma" # macOS 14; usa :sequoia para 15, etc.
+  depends_on macos: :sonoma # macOS 14; usa :sequoia para 15, etc.
 
   app "{{APP_NAME}}.app"
 
