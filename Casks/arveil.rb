@@ -4,8 +4,7 @@ cask "arveil" do
 
   # Arveil publishes its packages in its own releases; the tap keeps only this
   # recipe. The tag carries the public version and the file the build number.
-  url "https://github.com/Ulzuhan/arveil/releases/download/clients-v#{version.csv.first}/arveil-#{version.csv.first.split("-").first}-#{version.csv.second}-macos-arm64.zip",
-      verified: "github.com/Ulzuhan/arveil/"
+  url "https://github.com/Ulzuhan/arveil/releases/download/clients-v#{version.csv.first}/arveil-#{version.csv.first.split("-").first}-#{version.csv.second}-macos-arm64.zip"
   name "Arveil"
   desc "Mensajería cifrada de extremo a extremo para tu familia, con tu propio servidor"
   homepage "https://arveil.kaicorplabs.com/"
