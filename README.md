@@ -57,6 +57,7 @@ brew uninstall --zap --cask diskshelf    # además borra sus datos locales
 | Cask | App | Descripción | macOS mín. |
 |------|-----|-------------|------------|
 | `diskshelf` | DiskShelf | Cataloga discos externos y encuentra sus archivos aunque estén desconectados | 14 (Sonoma) |
+| `arveil` | Arveil | Mensajería cifrada de extremo a extremo para tu familia, con tu propio servidor | 12 (Monterey) |
 
 ## Añadir una app nueva al tap
 
@@ -83,3 +84,26 @@ script de release en el repo de esa app. La guía completa está en
   compila, sube el binario aquí y hace `git push` del bump del cask. `brew update`
   propaga el cambio a quien lo tenga instalado. El mismo trabajo se puede hacer a
   mano con `Scripts/release.sh`.
+
+## Arveil
+
+[Arveil](https://arveil.kaicorplabs.com/) es de código abierto y publica sus
+paquetes en sus propias [releases](https://github.com/Ulzuhan/arveil/releases);
+este tap solo guarda la receta, que apunta a ellas con su SHA-256.
+
+```sh
+brew tap kaicorplabs/tap
+brew trust kaicorplabs/tap
+brew install --cask arveil
+```
+
+- **Actualizar:** `brew upgrade --cask arveil`. No desinstales Arveil para
+  actualizarlo.
+- **Tu perfil no se borra nunca desde aquí.** Arveil guarda el perfil cifrado,
+  con las claves de tu identidad y tu historial, en
+  `~/Library/Containers/io.github.ulzuhan.arveil`. `brew uninstall` lo deja
+  intacto y la receta no tiene `zap`, así que ni `--zap` lo toca. Bórralo a
+  mano solo si de verdad quieres perder esa identidad; guarda antes tu kit.
+- Como las demás apps del tap, va firmada ad-hoc y sin notarizar: la primera
+  apertura de cada versión pide "Open Anyway".
+
