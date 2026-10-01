@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 cask "arveil" do
-  version "0.1.0-beta.3,21"
-  sha256 "ae29948a47b78ed8886a67789b6a849b2b80b853f672a31c934ec1725550104d"
+  version "0.1.0-beta.5,26"
+  sha256 "3904d59590af93d2b1a4cca4b062e700b83a274c290e2d89688eb49129b663e7"
 
   # Arveil publishes its packages in its own releases; the tap keeps only this
   # recipe. The tag carries the public version and the file the build number.
