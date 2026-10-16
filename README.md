@@ -57,6 +57,7 @@ brew uninstall --zap --cask <cask>    # además borra sus datos locales, si la r
 | Cask | App | Descripción | macOS mín. |
 |------|-----|-------------|------------|
 | `arveil` | Arveil | Mensajería cifrada de extremo a extremo para tu familia, con tu propio servidor | 12 (Monterey) |
+| `openward` | OpenWard | Cliente SSH de código abierto con SFTP, túneles, paneles y snippets | 13 (Ventura) |
 
 ## Añadir una app nueva al tap
 
@@ -106,3 +107,23 @@ brew install --cask arveil
 - Como las demás apps del tap, va firmada ad-hoc y sin notarizar: la primera
   apertura de cada versión pide "Open Anyway".
 
+## OpenWard
+
+OpenWard es un cliente SSH de código abierto para escritorio. Mientras su
+repositorio sea privado, cada versión de macOS se publica también como release
+de este tap (`openward-v<versión>`), y la receta apunta ahí.
+
+```sh
+brew tap kaicorplabs/tap
+brew trust kaicorplabs/tap
+brew install --cask openward
+```
+
+- **Actualizar:** `brew upgrade --cask openward`. Las betas también llegan
+  así.
+- **Tus datos:** hosts, grupos, identidades, túneles, snippets y ajustes van en
+  `~/Library/Application Support/dev.openward.OpenWard`, sin contraseñas ni
+  claves privadas. `brew uninstall` los conserva y `--zap` los borra. Ninguno
+  de los dos toca `~/.ssh`.
+- Va firmada ad hoc y sin notarizar: la primera apertura de cada versión pide
+  "Open Anyway".
