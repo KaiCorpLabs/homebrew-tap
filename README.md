@@ -14,7 +14,7 @@ para que gente de confianza pueda probarlas.
 ```sh
 brew tap kaicorplabs/tap
 brew trust kaicorplabs/tap          # una vez: taps de terceros requieren confianza
-brew install --cask diskshelf
+brew install --cask <cask>         # el de la tabla de abajo, p. ej. arveil
 ```
 
 > **`brew trust`**: desde Homebrew 6, instalar desde un tap que no es oficial
@@ -26,7 +26,7 @@ sin notarizar, macOS las bloquea al abrirlas. Autorízalas con cualquiera de est
 
 - **GUI**: intenta abrir la app → *System Settings → Privacy & Security* → botón
   **"Open Anyway"** → vuelve a abrir.
-- **Terminal**: `xattr -dr com.apple.quarantine /Applications/DiskShelf.app` y ábrela.
+- **Terminal**: `xattr -dr com.apple.quarantine /Applications/<App>.app` y ábrela.
 
 > Nota: `--no-quarantine` de `brew` **no** quita este paso en las versiones
 > actuales de Homebrew (no elimina la cuarentena del `.app` ya instalado). La
@@ -36,7 +36,7 @@ sin notarizar, macOS las bloquea al abrirlas. Autorízalas con cualquiera de est
 
 ```sh
 brew update            # refresca las recetas del tap
-brew upgrade --cask diskshelf
+brew upgrade --cask <cask>
 # o actualiza todo lo instalado por brew:
 brew upgrade
 ```
@@ -48,15 +48,14 @@ actualizar, la primera apertura de la versión nueva vuelve a pedir "Open Anyway
 ## Desinstalar
 
 ```sh
-brew uninstall --cask diskshelf          # elimina la app
-brew uninstall --zap --cask diskshelf    # además borra sus datos locales
+brew uninstall --cask <cask>          # elimina la app
+brew uninstall --zap --cask <cask>    # además borra sus datos locales, si la receta lo define
 ```
 
 ## Apps disponibles
 
 | Cask | App | Descripción | macOS mín. |
 |------|-----|-------------|------------|
-| `diskshelf` | DiskShelf | Cataloga discos externos y encuentra sus archivos aunque estén desconectados | 14 (Sonoma) |
 | `arveil` | Arveil | Mensajería cifrada de extremo a extremo para tu familia, con tu propio servidor | 12 (Monterey) |
 
 ## Añadir una app nueva al tap
@@ -78,7 +77,7 @@ script de release en el repo de esa app. La guía completa está en
 - **Recetas** (`Casks/*.rb`): una por app. Definen versión, `sha256`, URL de
   descarga y dónde se instala.
 - **Binarios**: se publican como *assets* de las *Releases* de **este mismo
-  repo**, con etiquetas por app (`diskshelf-v0.1.0`, `otraapp-v2.3.0`, …). Así el
+  repo**, con etiquetas por app (`miapp-v0.1.0`, `otraapp-v2.3.0`, …). Así el
   fuente sigue privado pero el binario es descargable sin autenticación.
 - **Publicación**: cada repo de app tiene un workflow que, al subir su versión,
   compila, sube el binario aquí y hace `git push` del bump del cask. `brew update`
