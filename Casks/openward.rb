@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 cask "openward" do
-  version "0.3.1-beta.4"
-  sha256 "dc5ba8aa4096f47c1ea4015fa30991c11ca631ee7ab358e65a8ef2715c06831d"
+  version "0.3.1-beta.5"
+  sha256 "6c7ab4f58891b3bb8fbeff5981c6bfdee11ac1b09aad208f62a8828313c76202"
 
   # While the OpenWard repository is private, Homebrew cannot download its
   # releases, so each package is also a release of this tap
