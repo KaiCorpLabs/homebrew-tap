@@ -37,6 +37,10 @@ cask "openward" do
     vez que abres cada versión, macOS la bloquea: ábrela y luego ve a
     Ajustes del Sistema → Privacidad y seguridad → «Abrir igualmente».
 
+    Para conectarte a equipos de tu red local, macOS pide el permiso de Red
+    local. Si lo denegaste, o una versión nueva lo perdió, actívalo en
+    Ajustes del Sistema → Privacidad y seguridad → Red local.
+
     Actualiza con `brew upgrade --cask openward`. Tus hosts y ajustes siguen en
       ~/Library/Application Support/dev.openward.OpenWard
     `brew uninstall` los conserva; `--zap` los borra. Ninguno de los dos toca
